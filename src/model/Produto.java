@@ -1,8 +1,8 @@
 package model;
 
-public class Produto {
+                 // Para usar o metodo .sort no array de tipo Produto
+public class Produto implements Comparable<Produto> {
 
-    // exemplo
     private  String nome;
     private double preco;
 
@@ -12,7 +12,7 @@ public class Produto {
         this.nome = nome;
     }
 
-    // get
+    // gets
     public String getNome(){
         return nome;
     }
@@ -21,7 +21,6 @@ public class Produto {
     }
 
     // Equals, sobescrevendo o metodo para que faça a comparação pelo nome e não pela referencia de memoria
-
     @Override
     public boolean equals(Object ref) {
         Produto produto = (Produto) ref;
@@ -32,4 +31,11 @@ public class Produto {
             return true;
         }
     }
+
+    // implementação para usar o .sort no array de produto
+    @Override
+    public int compareTo(Produto outroProduto) {
+        return this.nome.compareTo(outroProduto.getNome());
+    }
+
 }
