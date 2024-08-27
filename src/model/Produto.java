@@ -19,4 +19,17 @@ public class Produto {
     public double getPreco(){
         return preco;
     }
+
+    // Equals, sobescrevendo o metodo para que faça a comparação pelo nome e não pela referencia de memoria
+
+    @Override
+    public boolean equals(Object ref) {
+        Produto produto = (Produto) ref;
+
+        if(this.nome != produto.getNome()){
+            return false;
+        }else {
+            return true;
+        }
+    }
 }
