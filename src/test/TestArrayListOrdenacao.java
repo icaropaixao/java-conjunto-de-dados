@@ -4,6 +4,7 @@ import model.Produto;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class TestArrayListOrdenacao {
     public static void main(String[] args) {
@@ -45,11 +46,24 @@ public class TestArrayListOrdenacao {
         produtos.add(p3);
         produtos.add(p4);
 
-        Collections.sort(produtos);
-        // é necessario sobecrever a classe Produto com compareblee para funcionar
+        Collections.sort(produtos); // ordena os produtos pelo Nome
+        produtos.sort(new PrecoProdutoComparator()); // ordena os produtos pelo Preço
+
+        // é necessario sobecrever a classe Produto com compareble e compareTO para funcionar
         for (Produto produto: produtos) {
             System.out.println("Produto: "+ produto.getNome() + ", Preço: " + produto.getPreco());
         }
-
+        
     }
+}
+
+// Classe ordenar os produtos pelo preço
+class PrecoProdutoComparator implements Comparator<Produto> {
+
+    @Override
+    public int compare(Produto produto1, Produto produto2) {
+        // fazendo um "CASTING" no produto para retornar um int
+        return (int ) (produto1.getPreco() - produto2.getPreco());
+    }
+
 }
