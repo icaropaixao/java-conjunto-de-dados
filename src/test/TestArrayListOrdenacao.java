@@ -49,11 +49,10 @@ public class TestArrayListOrdenacao {
         Collections.sort(produtos); // ordena os produtos pelo Nome
         produtos.sort(new PrecoProdutoComparator()); // ordena os produtos pelo Preço
 
-        // é necessario sobecrever a classe Produto com compareble e compareTO para funcionar
         for (Produto produto: produtos) {
             System.out.println("Produto: "+ produto.getNome() + ", Preço: " + produto.getPreco());
         }
-        
+
     }
 }
 
